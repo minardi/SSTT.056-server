@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @backlog_item.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @backlog_item.description %>
+</p>
+
+<p>
+  <strong>Estimation:</strong>
+  <%= @backlog_item.estimation %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @backlog_item.parent_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @backlog_item.status %>
+</p>
+
+<p>
+  <strong>Item type:</strong>
+  <%= @backlog_item.item_type %>
+</p>
+
+<% if @backlog_item.item_type == "sprint" %>
+<p>
+  <strong>Info:</strong>
+  <%= @backlog_item.info %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_backlog_item_path(@backlog_item) %> |
+<%= link_to 'Back', backlog_items_path %>

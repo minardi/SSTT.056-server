@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Allowed for:</strong>
+  <%= @permission.allowed_for %>
+</p>
+
+<p>
+  <strong>Denied for:</strong>
+  <%= @permission.denied_for %>
+</p>
+
+<p>
+  <strong>Dash button:</strong>
+  <%= @permission.dash_button %>
+</p>
+
+<%= link_to 'Edit', edit_permission_path(@permission) %> |
+<%= link_to 'Back', permissions_path %>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSTaskTracking</title>
+
+    <% if request.path == '/' || request.path == '/users/sign_in' %>
+        <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <% end %>
+
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+
+    <script>
+        <% if user_signed_in? %>
+            var current_user_content = {
+                id: <%= current_user.id %>,
+                first_name: "<%= current_user.first_name %>",
+                last_name: "<%= current_user.last_name%>",
+                roles: <%= @roles.to_s.html_safe %>
+            };          
+        <% end %>
+    </script>
+    
+    <% if user_signed_in? && request.path == '/' %>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    
+        <!-- build:css(.tmp) app/styles/main.css -->
+        <link rel="stylesheet" href="app/styles/main.css">
+        <!-- endbuild -->
+
+        <!-- build:js app/scripts/vendor.js -->
+        <script src="app/bower_components/modernizr/modernizr.js"></script>		
+        <script src="app/bower_components/jquery/jquery.js"></script>
+
+        <script src="app/lib/jq-ajax-setup.js"></script>
+
+        <script src="app/bower_components/underscore/underscore.js"></script>
+        <script src="app/bower_components/backbone/backbone.js"></script>
+        <script src="app/lib/backbone-mediator.js"></script>
+        <script src="app/lib/backbone-modelBinder.js"></script>
+        <script src="app/lib/datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="app/lib/flot/jquery.flot.js"></script>
+        <script src="app/lib/flot/jquery.flot.time.js"></script>
+        <!-- endbuild -->
+    
+        <!-- build:js({.tmp,app}) app/scripts/main.js -->
+
+        <script src="app/scripts/main.js"></script>
+        <script src="app/scripts/templates.js"></script>
+
+        <!-- module User -->
+        <script src="app/scripts/User/UserModelView.js"></script>
+
+        <!-- module Projects-->
+        <script src="app/scripts/Projects/ProjectsModel.js"></script>
+        <script src="app/scripts/Projects/ProjectsCollection.js"></script>
+        <script src="app/scripts/Projects/ProjectsModelView.js"></script>
+        <script src="app/scripts/Projects/ProjectsCollectionView.js"></script>
+    
+        <!-- module BacklogItem-->
+        <script src="app/scripts/BacklogItem/BacklogItemModel.js"></script>
+        <script src="app/scripts/BacklogItem/BacklogItemCollection.js"></script>
+        
+        <!-- module ProductBacklog-->
+        <script src="app/scripts/ProductBacklog/ProductBacklogModel.js"></script>
+        <script src="app/scripts/ProductBacklog/ProductBacklogCollection.js"></script>
+        <script src="app/scripts/ProductBacklog/ProductBacklogModelView.js"></script>
+        <script src="app/scripts/ProductBacklog/ProductBacklogCollectionView.js"></script>
+         
+        <!-- module SprintBacklog -->
+        <script src="app/scripts/SprintBacklog/SprintBacklogModel.js"></script>
+        <script src="app/scripts/SprintBacklog/SprintBacklogCollection.js"></script>
+        <script src="app/scripts/SprintBacklog/SprintBacklogModelView.js"></script>
+        <script src="app/scripts/SprintBacklog/SprintBacklogCollectionView.js"></script>
+
+        <!-- module ScrumPage-->
+        <script src="app/scripts/ScrumPage/ScrumPageModel.js"></script>
+        <script src="app/scripts/ScrumPage/ScrumPageModelView.js"></script>
+
+        <!-- module Projectinfo-->
+        <script src="app/scripts/Projectinfo/ProjectinfoModel.js"></script>
+        <script src="app/scripts/Projectinfo/ProjectinfoModelView.js"></script>
+
+         <!-- module ScrumBoard-->
+        <script src="app/scripts/ScrumBoard/ScrumBoardModel.js"></script>
+        <script src="app/scripts/ScrumBoard/ScrumBoardCollection.js"></script>
+        <script src="app/scripts/ScrumBoard/ScrumBoardModelView.js"></script>
+        <script src="app/scripts/ScrumBoard/ScrumBoardCollectionView.js"></script>
+         
+        <!-- module ContextMenu-->
+        <script src="app/scripts/ContextMenu/ContextMenuModel.js"></script>
+        <script src="app/scripts/ContextMenu/ContextMenuCollection.js"></script>
+        <script src="app/scripts/ContextMenu/ContextMenuModelView.js"></script>
+        <script src="app/scripts/ContextMenu/ContextMenuCollectionView.js"></script>
+         
+        <!-- module TeamEditPage-->
+        <script src="app/scripts/TeamEditPage/TeamEditPageModel.js"></script>
+        <script src="app/scripts/TeamEditPage/TeamEditPageModelView.js"></script>   
+
+        <!-- module TeamMembers-->
+        <script src="app/scripts/TeamMembers/TeamMembersModel.js"></script>
+        <script src="app/scripts/TeamMembers/TeamMembersCollection.js"></script>
+        <script src="app/scripts/TeamMembers/TeamMembersModelView.js"></script>
+        <script src="app/scripts/TeamMembers/TeamMembersCollectionView.js"></script>
+
+        <!-- module Teams-->
+        <script src="app/scripts/Teams/TeamsModel.js"></script>
+        <script src="app/scripts/Teams/TeamsCollection.js"></script>
+        <script src="app/scripts/Teams/TeamsModelView.js"></script>
+        <script src="app/scripts/Teams/TeamsCollectionView.js"></script>
+
+        <!-- module TeamCandidates-->
+        <script src="app/scripts/TeamCandidates/TeamCandidatesModel.js"></script>
+        <script src="app/scripts/TeamCandidates/TeamCandidatesCollection.js"></script>
+        <script src="app/scripts/TeamCandidates/TeamCandidatesModelView.js"></script>
+        <script src="app/scripts/TeamCandidates/TeamCandidatesCollectionView.js"></script>
+         
+        <!-- module BacklogItemEdit-->
+        <script src="app/scripts/BacklogItemEdit/BacklogItemEditModel.js"></script>
+        <script src="app/scripts/BacklogItemEdit/BacklogItemEditModelView.js"></script>
+
+        <!-- module DatePicker-->
+        <script src="app/scripts/DatePicker/DatePickerModelView.js"></script>
+         
+        <!-- module PlanningBoard-->
+        <script src="app/scripts/PlanningBoard/PlanningBoardModelView.js"></script>
+         
+        <!-- module Statistics-->
+        <script src="app/scripts/Statistics/StatisticsModel.js"></script>
+        <script src="app/scripts/Statistics/StatisticsCollection.js"></script>
+        <script src="app/scripts/Statistics/StatisticsModelView.js"></script>
+        <script src="app/scripts/Statistics/StatisticsCollectionView.js"></script>
+
+        <!-- module Confirmation-->
+        <script src="app/scripts/Confirmation/ConfirmationModelView.js"></script>
+         
+        <!-- module Chart-->
+        <script src="app/scripts/Chart/ChartModelView.js"></script>
+         
+        <!-- endbuild -->
+    <% end %>
+
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

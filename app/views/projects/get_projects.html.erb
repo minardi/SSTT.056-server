@@ -1,0 +1,33 @@
+<h1>Listing projects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>id</th>
+      <th>start</th>
+      <th>finish</th>
+      <th>owner</th>
+    </tr>
+  </thead>
+
+  <tbody>
+     <% @proj.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.description %></td>
+        <td><%= project.id %></td>
+        <td><%= project.start %></td>
+        <td><%= project.finish %></td>
+        <td><%= project.owner %></td>
+        <td><%= project.pm %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project', new_project_path %>

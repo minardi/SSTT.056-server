@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  btn_content: MyString
+  btn_type: MyString
+  permission: MyString
+
+two:
+  btn_content: MyString
+  btn_type: MyString
+  permission: MyString

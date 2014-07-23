@@ -1,0 +1,1 @@
+json.extract! @project_new, :id, :title, :description, :owner, :start, :finish, :role, :pm

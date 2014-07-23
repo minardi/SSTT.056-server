@@ -1,0 +1,28 @@
+<h1>Listing teams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>title</th>
+      <th>description</th>
+      <th>Project</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.id %></td>
+        <td><%= team.title %></td>
+        <td><%= team.description %></td>
+        <td><%= team.project_id %></td>
+  
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Team', new_team_path %>

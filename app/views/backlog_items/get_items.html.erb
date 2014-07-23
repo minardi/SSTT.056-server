@@ -1,0 +1,49 @@
+<div style="
+  background-color: white;
+">
+<h1>Listing backlog_items</h1>
+
+<table>
+  <thead>
+    <tr>
+    <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Estimation</th>
+      <th>Parent</th>
+      <th>Status</th>
+      <th>Item type</th>
+      <th>Info</th>
+      <th>start_at</th>
+      <th>end_at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @backlog_items.each do |backlog_item| %>
+      <tr>
+    <td><%= backlog_item.id %></td>
+        <td><%= backlog_item.title %></td>
+        <td><%= backlog_item.description %></td>
+        <td><%= backlog_item.estimation %></td>
+        <td><%= backlog_item.parent_id %></td>
+        <td><%= backlog_item.status %></td>
+        <td><%= backlog_item.item_type %></td>
+        <td><%= backlog_item.info %></td>
+        <td><% if backlog_item.item_type == "sprint" %><%= backlog_item.info["start_date"] %><% end %></td>
+        <td><% if backlog_item.item_type == "sprint" %><%= backlog_item.info["end_date"] %><% end %></td>
+        <td><%= link_to 'Show', backlog_item %></td>
+        <td><%= link_to 'Edit', edit_backlog_item_path(backlog_item) %></td>
+        <td><%= link_to 'Destroy', backlog_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Backlog item', new_backlog_item_path %>
+</div>

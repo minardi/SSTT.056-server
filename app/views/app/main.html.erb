@@ -1,0 +1,37 @@
+<div class="app-wrapper">
+    <div class="b-header">
+            <b class="user">
+                
+            </b>
+            <span class="hide btn btn-info glyphicon glyphicon-wrench">
+            </span>
+            <span>
+                <%= link_to "LogOut", destroy_user_session_path, 
+                    :method => :delete, 
+                    :class => "btn btn-danger glyphicon glyphicon-user" %>
+            </span>
+    </div>
+
+    <div class="b-sidebar">
+        <div class="info">
+            <div class="title">Info</div>
+            <div class="main">
+					Please select project.
+			</div>
+        </div>
+    </div>
+        
+    <div class="b-main">
+        <div class = "edit-backlog-item hidden">
+        </div>
+        <div class = "message-container hidden">
+        </div>
+        <div class = "cover hidden">
+        </div>
+    </div>
+	
+	
+
+
+
+</div>

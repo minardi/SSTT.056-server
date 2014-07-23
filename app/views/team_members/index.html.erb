@@ -1,0 +1,50 @@
+<h1>Listing team_members</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Team</th>
+      <th>Role</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @team_members.each do |team_member| %>
+      <tr>
+        <td><%= team_member.user_id %></td>
+        <td><%= team_member.team_id %></td>
+        <td><%= team_member.role %></td>
+        <td><%= team_member.id %></td>
+
+        <td><%= link_to 'Show', team_member %></td>
+        <td><%= link_to 'Edit', edit_team_member_path(team_member) %></td>
+        <td><%= link_to 'Destroy', team_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+    <% @team_members.each do |team_member| %>
+       <ul>
+          <li>
+            <% if team_member.role == 'watcher'%> 
+              role = <%= team_member.role %>;
+              user id = <%= team_member.user.id %>;
+              name = <%= team_member.user.first_name %>;
+              team id = <%= team_member.team.id %>
+              project_id = <%= team_member.team.project_id %>;
+              project = <%= team_member.team.project.title %>
+
+              <%end%>
+          </li>
+        </ul>
+    <% end %>   
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Team member', new_team_member_path %>
