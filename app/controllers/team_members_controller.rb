@@ -17,7 +17,8 @@ class TeamMembersController < ApplicationController
         :id =>  team_member.id,
         :first_name => team_member.user.first_name,
         :last_name => team_member.user.last_name,
-        :role =>  team_member.role 
+        :role =>  team_member.role,
+        :user_id => team_member.user_id
       }
       @team_members.push(@user_c)
     end
