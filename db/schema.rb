@@ -54,36 +54,6 @@ ActiveRecord::Schema.define(version: 20140515133956) do
     t.string   "pm"
   end
 
-  create_table "sprints", force: true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.integer  "project_id"
-    t.string   "start"
-    t.string   "finish"
-    t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "stories", force: true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "project_id"
-    t.string   "status"
-    t.string   "sprint_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tasks", force: true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "status"
-    t.integer  "story_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "team_members", force: true do |t|
     t.integer  "user_id"
     t.integer  "team_id"

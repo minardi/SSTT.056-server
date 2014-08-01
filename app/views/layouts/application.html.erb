@@ -17,7 +17,15 @@
                 first_name: "<%= current_user.first_name %>",
                 last_name: "<%= current_user.last_name%>",
                 roles: <%= @roles.to_s.html_safe %>
-            };          
+   			}<% if @users_projects %>,    
+				current_projects = [ 
+					<% n = @users_projects.size %>
+					<% i = 0 %>
+					<% @users_projects.each do |proj| %>
+						<% i = i+1 %>				
+						<%= proj.html_safe %><% if i < n %>,<% end %>
+						<% end %> 
+				]<% end %>;
         <% end %>
     </script>
     
@@ -61,6 +69,10 @@
         <!-- module BacklogItem-->
         <script src="app/scripts/BacklogItem/BacklogItemModel.js"></script>
         <script src="app/scripts/BacklogItem/BacklogItemCollection.js"></script>
+		
+		<!-- module InfoBlock-->
+		<script src="app/scripts/InfoBlock/InfoBlockModel.js"></script>
+		<script src="app/scripts/InfoBlock/InfoBlockModelView.js"></script>
         
         <!-- module ProductBacklog-->
         <script src="app/scripts/ProductBacklog/ProductBacklogModel.js"></script>
@@ -78,9 +90,13 @@
         <script src="app/scripts/ScrumPage/ScrumPageModel.js"></script>
         <script src="app/scripts/ScrumPage/ScrumPageModelView.js"></script>
 
-        <!-- module Projectinfo-->
+        <!-- module ProjectInfo-->
         <script src="app/scripts/Projectinfo/ProjectinfoModel.js"></script>
         <script src="app/scripts/Projectinfo/ProjectinfoModelView.js"></script>
+
+        <!-- module BacklogItemInfo-->
+        <script src="app/scripts/BacklogItemInfo/BacklogItemInfoModel.js"></script>
+        <script src="app/scripts/BacklogItemInfo/BacklogItemInfoModelView.js"></script>
 
          <!-- module ScrumBoard-->
         <script src="app/scripts/ScrumBoard/ScrumBoardModel.js"></script>
@@ -93,6 +109,10 @@
         <script src="app/scripts/ContextMenu/ContextMenuCollection.js"></script>
         <script src="app/scripts/ContextMenu/ContextMenuModelView.js"></script>
         <script src="app/scripts/ContextMenu/ContextMenuCollectionView.js"></script>
+		
+		<!-- module TaskInfo-->
+		<script src="app/scripts/TaskInfo/InfoTaskModel.js"></script>
+		<script src="app/scripts/TaskInfo/InfoTaskModelView.js"></script>
          
         <!-- module TeamEditPage-->
         <script src="app/scripts/TeamEditPage/TeamEditPageModel.js"></script>
