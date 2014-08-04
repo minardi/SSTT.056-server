@@ -1,17 +1,22 @@
-<div class="app-wrapper">
-    <div class="b-header">
-            <b class="user">
-                
-            </b>
-            <span class="hide btn btn-info glyphicon glyphicon-wrench">
-            </span>
-            <span>
-                <%= link_to "LogOut", destroy_user_session_path, 
-                    :method => :delete, 
-                    :class => "btn btn-danger glyphicon glyphicon-user" %>
-            </span>
-    </div>
 
+<div class = "header-wrapper ">
+    <div class="b-header">
+            <div class = "logo col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+            <div class = "user_info col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <b class="user">
+                    
+                </b>
+                <span class="hide btn btn-info glyphicon glyphicon-wrench">
+                </span>
+                <span>
+                    <%= link_to "LogOut", destroy_user_session_path, 
+                        :method => :delete, 
+                        :class => "btn btn-primary glyphicon glyphicon-user" %>
+                </span>
+            </div>    
+    </div>
+</div>
+<div class="app-wrapper">        
     <div class="b-sidebar">
         <div class="info">
             <div class="title">Info</div>
